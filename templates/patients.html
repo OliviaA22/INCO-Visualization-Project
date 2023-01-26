@@ -1,0 +1,49 @@
+<!-- {
+'FirstName': 'Aaron',
+'LastName': 'Burgess',
+'Address': 'Ap #955-6907 Malesuada Ave', \
+'PatientID': 'Q9B0R5',
+'Given': 2,
+'WardCode': 46,
+'Ward': 'Neurology',
+'Gender': 'Male',
+'RoomNo': 184,
+'Prescribed': 3,
+'Percentage': 0.6666666666666666
+} -->
+
+{% extends 'index.html' %}
+{% block content %}
+
+  <div class="wrapper">
+   <!--Top Menu & Menu button-->
+
+
+    <div class="section ">
+                  <h1><a href="#">Welcome to {{data[0]['Ward']}} Department</a></h1>
+
+             
+ 
+    <div id='ward'>
+    {% for patient in data %}
+      <div class="rooms" style="background-color: {{patient['Status']}}">
+        <h2 class='room_no'><a href="{{ward}}">{{patient['RoomNo']}} </a></h2>
+          <h4>{{patient['LastName']}}, {{patient['FirstName']}}</h4>
+
+          {% for medication in range(1, patient['Prescribed']) %}
+          <td class="{{patient['Status']}}"></td>
+          <td class="{{patient['Status']}}"></td>
+          <td class="{{patient['Status']}}"></td>
+          {% endfor %}
+      </div>
+       {% endfor %}   
+       
+    </div>
+    
+  </div>
+  <button id="change-color-button">Shift Hand Over</button>
+
+</div>
+
+{% endblock %}
+

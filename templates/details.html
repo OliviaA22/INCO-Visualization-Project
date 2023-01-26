@@ -1,0 +1,32 @@
+<!-- {
+    "FirstName": "Aaron",
+    "LastName": "Burgess",
+    "PatientID": "Q9B0R5",
+    "Address": "Ap #955-6907 Malesuada Ave",
+    "Gender": "Male",
+    "Ward": "Neurology",
+    "RoomNo": 225,
+    "Location": "Left",
+    "WardCode": 46,
+    "Prescribed": 3,
+    "Medication1": "Petroleum Jelly",
+    "Medication2": "Sennosides",
+    "Medication3": "Mirtazapine",
+    "Given": 2,
+    "Status": "Partially Completed",
+    "Percentage": 0.6666666666666666
+   }, -->
+   
+{% extends 'index.html' %}
+{% block content %}
+
+
+<h1>{{ patient["FirstName"] }} {{ patient["LastName"] }}</h1>
+<p>{{ patient["Address"] }}</p>
+<h2>Medication Information</h2>
+<ul>
+    <li>{{ patient["Medication1"] }}</li>
+    <li>{{ patient["Medication2"] }}</li>
+    <li>{{ patient["Medication3"] }}</li>
+</ul>
+{% endblock %}
