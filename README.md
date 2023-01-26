@@ -10,7 +10,7 @@ This application shows a simple way to transfer a data visualization to a custom
 
 2. Activate the environment. The code below works for bash on linux. Check the manual for different operating systems or shells. I moved the venv into a dotfolder and added this folder to .gitignore. No need to ship all modules with git :-)
 
-`source .venv/bin/activate`
+`source .venv/bin/activate` (depending on your operating system)
 
 3. Install the dependencies from requirements.txt
 
