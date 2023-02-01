@@ -20,15 +20,12 @@
 
 
     <div class="section ">
-                  <h1><a href="#">Welcome to {{data[0]['Ward']}} Department</a></h1>
-
-             
- 
+                  <h1 >Welcome to {{data[0]['Ward']}} Department</h1>
     <div id='ward'>
     {% for patient in data %}
       <div class="rooms" style="background-color: {{patient['Status']}}">
-        <h2 class='room_no'><a href="{{ward}}">{{patient['RoomNo']}} </a></h2>
-          <h4>{{patient['LastName']}}, {{patient['FirstName']}}</h4>
+        <h3>{{patient['RoomNo']}}</h3>
+        <h3 class='room_no'><a href="{{ url_for('details', ward=patient['Ward'], Room=patient['RoomNo']) }}">{{ patient.FirstName }} {{ patient.LastName }} </a></h3>
 
           {% for medication in range(1, patient['Prescribed']) %}
           <td class="{{patient['Status']}}"></td>
