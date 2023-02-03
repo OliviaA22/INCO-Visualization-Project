@@ -6,7 +6,6 @@
     "Gender": "Male",
     "Ward": "Neurology",
     "RoomNo": 225,
-    "Location": "Left",
     "WardCode": 46,
     "Prescribed": 3,
     "Medication1": "Petroleum Jelly",
@@ -16,69 +15,77 @@
     "Status": "Partially Completed",
     "Percentage": 0.6666666666666666
    }, -->
-{% extends 'index.html' %}
-{% block content %}
-<div class="container ">
-    <h1>Patient Details</h1>
-    <table>
-        <tr>
-            <th>Patient ID</th>
-            <td>{{ data.PatientID }}</td>
-        </tr>
-        <tr>
-            <th>Name</th>
-            <td>{{ data.FirstName }} {{ data.LastName }}</td>
-        </tr>
-        <tr>
-            <th>Address</th>
-            <td>{{ data.Address }}</td>
-        </tr>
-        <tr>
-            <th>Gender</th>
-            <td>{{ data.Gender }}</td>
-        </tr>
-        <tr>
-            <th>Ward</th>
-            <td>{{ data.Ward }}</td>
-        </tr>
-        <tr>
-            <th>Room Number</th>
-            <td>{{ data.RoomNo }}</td>
-        </tr>
-        <tr>
-            <th>Location</th>
-            <td>{{ data.Location }}</td>
-        </tr>
-        <tr>
-            <th>Ward Code</th>
-            <td>{{ data.WardCode }}</td>
-        </tr>
-        <tr>
-            <th>Prescribed</th>
-            <td>{{ data.Prescribed }}</td>
-        </tr>
-        <tr>
-            <th>Medication 1</th>
-            <td>{{ data.Medication1 }}</td>
-        </tr>
-        <tr>
-            <th>Medication 2</th>
-            <td>{{ data.Medication2 }}</td>
-        </tr>
-        <tr>
-            <th>Medication 2</th>
-            <td>{{ data.Medication3 }}</td>
-        </tr>
-        <tr>
-            <th>Given</th>
-            <td>{{ data.Given }}</td>
-        </tr>
-        <tr>
-            <th>Percentage</th>
-            <td>{{ data.Percentage }}</td>
-        </tr>
-    </table>
-
-
-</div>
-{% endblock %}
+   {% extends 'index.html' %}
+   {% block content %}
+   <div class="container ">
+       <h1>Patient Details</h1>
+   
+       <div class="patient-info">
+           {% for patient in data %}
+           <table>
+               <tr>
+                   <th>Patient ID</th>
+                   <td>{{ patient.PatientID }}</td>
+               </tr>
+               <tr>
+                   <th>Name</th>
+                   <td>{{ patient.FirstName }} {{ patient.LastName }}</td>
+               </tr>
+               <tr>
+                   <th>Address</th>
+                   <td>{{ patient.Address }}</td>
+               </tr>
+               <tr>
+                   <th>Gender</th>
+                   <td>{{ patient.Gender }}</td>
+               </tr>
+           </table>
+           {%endfor%}
+       </div>
+    <div class="medic">
+       {% for patient in data %}
+       <table>
+           <tr>
+               <th>Ward</th>
+               <td>{{ patient.Ward }}</td>
+           </tr>
+           <tr>
+               <th>Room Number</th>
+               <td>{{ patient.RoomNo }}</td>
+           </tr>
+           <tr>
+               <th>Ward Code</th>
+               <td>{{ patient.WardCode }}</td>
+           </tr>
+           <tr>
+               <th>Prescribed</th>
+               <td>{{ patient.Prescribed }}</td>
+           </tr>
+           <tr>
+               <th>Medication 1</th>
+               <td>{{ patient.Medication1 }}</td>
+           </tr>
+           <tr>
+               <th>Medication 2</th>
+               <td>{{ patient.Medication2 }}</td>
+           </tr>
+           <tr>
+               <th>Medication 2</th>
+               <td>{{ patient.Medication3 }}</td>
+           </tr>
+           <tr>
+               <th>Given</th>
+               <td>{{ patient.Given }}</td>
+           </tr>
+           <tr>
+               <th>Percentage</th>
+               <td>{{ patient.Percentage }}</td>
+           </tr>
+       </table>
+       {%endfor%}
+   
+   
+    </div>
+   
+   </div>
+   {% endblock %}
