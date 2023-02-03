@@ -6,7 +6,6 @@
     "Gender": "Male",
     "Ward": "Neurology",
     "RoomNo": 225,
-    "Location": "Left",
     "WardCode": 46,
     "Prescribed": 3,
     "Medication1": "Petroleum Jelly",
@@ -17,19 +16,20 @@
     "Percentage": 0.6666666666666666
    }, -->
 
-{% extends 'index.html' %}
-{% block content %}
-
-<div class="wrapper">
-  <!--Top Menu & Menu button-->
-  <div class="section">
-          <h1>Select Your Ward...</h1>
-        {% for ward in data %}
-        <div class="wards">
-            <h2 class='wardID'> <a href="{{ward}}">{{ward}}</a></h2>
-        </div>
-  {% endfor %}
-  </div>
-
-</div>
-{% endblock %}
+   {% extends 'index.html' %}
+   {% block content %}
+   
+   <div class="wrapper">
+     <!--Top Menu & Menu button-->
+     <div class="section">
+             <h1>Select Your Ward...</h1>
+           {% for ward in data %}
+           <div class="wards">
+               <h2 class='wardID'> <a href="{{ward}}">{{ward}}</a></h2>
+           </div>
+     {% endfor %}
+     </div>
+   
+   </div>
+   {% endblock %}
+   

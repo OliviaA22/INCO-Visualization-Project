@@ -1,46 +1,63 @@
 <!-- {
-'FirstName': 'Aaron',
-'LastName': 'Burgess',
-'Address': 'Ap #955-6907 Malesuada Ave', \
-'PatientID': 'Q9B0R5',
-'Given': 2,
-'WardCode': 46,
-'Ward': 'Neurology',
-'Gender': 'Male',
-'RoomNo': 184,
-'Prescribed': 3,
-'Percentage': 0.6666666666666666
-} -->
+    "FirstName": "Aaron",
+    "LastName": "Burgess",
+    "PatientID": "Q9B0R5",
+    "Address": "Ap #955-6907 Malesuada Ave",
+    "Gender": "Male",
+    "Ward": "Neurology",
+    "RoomNo": 225,
+    "WardCode": 46,
+    "Prescribed": 3,
+    "Medication1": "Petroleum Jelly",
+    "Medication2": "Sennosides",
+    "Medication3": "Mirtazapine",
+    "Given": 2,
+    "Status": "Partially Completed",
+    "Percentage": 0.6666666666666666
+   }, -->
 
-{% extends 'index.html' %}
-{% block content %}
-
-  <div class="wrapper">
-   <!--Top Menu & Menu button-->
-
-
-    <div class="section ">
-                  <h1 >Welcome to {{data[0]['Ward']}} Department</h1>
-    <div id='ward'>
-    {% for patient in data %}
-      <div class="rooms" style="background-color: {{patient['Status']}}">
-        <h3>{{patient['RoomNo']}}</h3>
-        <h3 class='room_no'><a href="{{ url_for('details', ward=patient['Ward'], Room=patient['RoomNo']) }}">{{ patient.FirstName }} {{ patient.LastName }} </a></h3>
-
-          {% for medication in range(1, patient['Prescribed']) %}
-          <td class="{{patient['Status']}}"></td>
-          <td class="{{patient['Status']}}"></td>
-          <td class="{{patient['Status']}}"></td>
-          {% endfor %}
-      </div>
-       {% endfor %}   
+   {% extends 'index.html' %}
+   {% block content %}
+   
+   <div class="wrapper">
+     <!--Top Menu & Menu button-->
+       <div class="section ">
+         <h1>Welcome to {{data[0]['Ward']}} Department</h1>
+         <div><button id="change-color-button">Shift Hand Over</button></div>
+         <br>
+         <br>
+   <!-- place odd numbers in the left div -->
+           <div class='left'>
+             {% for room_no, patients in room_dict.items() if room_no is odd %}
+             <div class="rooms">
+               <h3>{{room_no}}</h3>
+               {% for patient in patients %}
+               <div class="patient {{patient['Status']}}">
+                 <h3 class='room_no'><a href="{{url_for('details', ward=patient['Ward'], Room=patient['RoomNo'], patient_id=patient['Patient ID'])}}">{{ patient.FirstName}} {{ patient.LastName }} </a></h3>
+               </div>
+               {% endfor %}
+             </div>
+             {% endfor %}
+           </div>
+           <!-- place even numbers in the right div -->
+           <div class='right'>
+             {% for room_no, patients in room_dict.items() if room_no is even %}
+             <div class="rooms">
+               <h3>{{room_no}}</h3>
+               {% for patient in patients %}
+               <div class="patient {{patient['Status']}}">
+                 <h3 class='room_no'><a href="{{url_for('details', ward=patient['Ward'], Room=patient['RoomNo'], patient_id=patient['Patient ID'])}}">{{ patient.FirstName}} {{ patient.LastName }} </a></h3>
+               </div>
+               {% endfor %}
+             </div>
+             {% endfor %}
+           </div>
+       </div>
        
-    </div>
-    
-  </div>
-  <button id="change-color-button">Shift Hand Over</button>
-
-</div>
-
-{% endblock %}
-
+   
+   
+   </div>
+   
+   {% endblock %}
+   
+   
