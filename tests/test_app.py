@@ -74,5 +74,47 @@ class TestFlaskApp(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    
 
-       
+'''
+class TestPatientDetails(unittest.TestCase):
+    def setUp(self):
+        # Set up the test client and populate the data that will be used in the tests
+        self.app = self.app.test_client()
+        self.data = [{'RoomNo': 1, 'LastName': 'Smith', 'FirstName': 'John', 'Prescribed': 3, 'Status': 'green'},
+                     {'RoomNo': 2, 'LastName': 'Doe', 'FirstName': 'Jane', 'Prescribed': 2, 'Status': 'yellow'},
+                     {'RoomNo': 3, 'LastName': 'Brown', 'FirstName': 'Bob', 'Prescribed': 1, 'Status': 'red'}]
+        
+    def test_index_page_loads(self):
+        # Test that the index page loads without errors
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
+        
+    def test_patient_details_page_loads(self):
+        # Test that the patient details page loads without errors
+        response = self.app.get('/details/1')
+        self.assertEqual(response.status_code, 200)
+        
+    def test_patient_details_correct(self):
+        # Test that the patient details displayed on the page are correct
+        response = self.app.get('/details/1')
+        patient = [patient for patient in self.data if patient['RoomNo'] == 1][0]
+        self.assertIn(patient['LastName'].encode(), response.data)
+        self.assertIn(patient['FirstName'].encode(), response.data)
+        self.assertIn(str(patient['Prescribed']).encode(), response.data)
+        self.assertIn(patient['Status'].encode(), response.data)
+        
+if __name__ == '__main__':
+    unittest.main()
+'''
+
+
+# In the above code, the unittest module is imported, and a test class TestPatientDetails is defined. The test class is derived from unittest.TestCase.
+
+# In the setUp method, the test client is created, and the data that will be used in the tests is populated. The app.test_client() method creates a test client that allows you to send HTTP requests to your Flask application and receive the response, without actually running the application in a web server.
+
+# The test_index_page_loads method tests that the index page loads without errors by sending a GET request to the '/' endpoint and checking the status code of the response.
+
+# The test_patient_details_page_loads method tests that the patient details page loads without errors by sending a GET request to the '/details/1' endpoint and checking the status code of the response.
+
+# The test_patient_details_correct method tests that the patient details displayed on the page are correct by sending a GET request to the '/details/1' endpoint, retrieving the patient data from the self.data list, and checking that the patient's last name, first name, prescribed medication,

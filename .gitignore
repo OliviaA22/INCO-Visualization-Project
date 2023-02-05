@@ -1,4 +1,4 @@
-.app_env
-.venv
 
+.venv
 .nvim/
+app_env
