@@ -18,7 +18,7 @@
    {% extends 'index.html' %}
    {% block content %}
    <div class="container ">
-       <h1>Patient Details</h1>
+       <h1 class="hed">Patient Details</h1>
    
        <div class="patient-info">
            {% for patient in data %}
@@ -45,6 +45,10 @@
     <div class="medic">
        {% for patient in data %}
        <table>
+        <tr>
+            <th>Patient ID</th>
+            <td>{{ patient.PatientID }}</td>
+        </tr>
            <tr>
                <th>Ward</th>
                <td>{{ patient.Ward }}</td>

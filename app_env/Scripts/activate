@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\royalangel\Desktop\inco_app\app_env"
+VIRTUAL_ENV="C:\Users\royalangel\Desktop\Inco_Project\app_env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

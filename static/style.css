@@ -12,6 +12,7 @@ body{
 	/* font-family: 'Open Sans', sans-serif; */
 	background-color: rgba(125, 241, 202, 0.811); 
   font-family: "Trirong", serif;
+  font-size: 20px;
 }
 
 
@@ -20,7 +21,7 @@ div.wards{
   background-color: bisque;
   float: right;
   border-radius: 25px;
-  margin: 20px;
+  margin: 18px;
   width: 15%;
   height: 120px;
   border: 1px solid rgb(64, 86, 69);
@@ -31,13 +32,15 @@ div.right {
   float: right;
   width: 25%;
   padding: 10px;
+  margin-right: 30px;
 
 }
 
 div.left {
+  margin-left: 10px;
   float: left;
   width: 25%;
-  padding: 10px;
+  padding: 30px;
 }
 
 
@@ -116,11 +119,12 @@ div.patient{
   background-color: rgb(232, 218, 197);
   align-items: center;
 }
-
+.hed{
+  font-size: 45px;
+  padding-right: 20px;
+}
 table{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+
   width: max-content;
   position: relative;
   margin-bottom: 90px;
@@ -129,6 +133,9 @@ table{
 }
 table, th, td {
   border: 1px solid;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 25px;
+  padding: 10px;
 }
 .medic{
   float: right;
