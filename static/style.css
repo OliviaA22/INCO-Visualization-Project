@@ -21,8 +21,9 @@ div.wards{
   background-color: bisque;
   float: right;
   border-radius: 25px;
+  padding: 5px;
   margin: 18px;
-  width: 15%;
+  width: 19%;
   height: 120px;
   border: 1px solid rgb(64, 86, 69);
   text-align: center;
